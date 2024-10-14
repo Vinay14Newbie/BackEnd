@@ -1,0 +1,38 @@
+1. require
+require is used to import modules, libraries, or custom files into your current file in Node.js. This is how Node.js manages modularity, which is important for creating organized, reusable, and maintainable code.
+
+Why it's taught: In a real-world backend project, your code will likely be split across multiple files and will rely on various libraries (both built-in and third-party). Learning to use require helps you understand how to include and use these libraries.
+
+Example:
+
+const fs = require('fs');  // Importing the built-in file system module
+
+
+
+2. fs/promises
+fs stands for File System. It is a built-in module in Node.js that allows you to interact with the system's file system—reading, writing, updating, and deleting files. The fs/promises API is the promise-based version of the fs module, meaning you can work with asynchronous file operations using async and await instead of callbacks.
+
+Why it's taught: In backend development, managing files (such as logs, user-uploaded data, configurations, etc.) is crucial. fs/promises gives you a modern, promise-based API to handle these operations asynchronously, making it easier to write clean, non-blocking code.
+
+Example:
+
+const fs = require('fs/promises');
+
+// Writing to a file asynchronously
+async function writeFile() {
+  await fs.writeFile('example.txt', 'Hello, world!');
+}
+
+By using promises (and async/await), you're able to handle file operations without blocking the event loop, which is essential for the high-performance nature of Node.js.
+
+3. path
+The path module is another built-in module that helps you handle and manipulate file and directory paths. Since file paths can vary depending on the operating system (Windows, Linux, macOS), path provides methods to safely construct and work with paths without worrying about platform-specific details.
+
+Why it's taught: In any backend system, you'll deal with files and directories. Hardcoding file paths (e.g., using / or \) can break your app across different operating systems. The path module helps abstract away these details, ensuring your file operations work seamlessly on all systems.
+
+Example:
+
+const path = require('path');
+
+// Combining directory and file names into a full file path
+const filePath = path.join(__dirname, 'sample.txt');
